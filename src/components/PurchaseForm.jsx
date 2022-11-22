@@ -26,10 +26,11 @@ export const PurchaseForm = () => {
   const getData = async () => {
     const newData = await getDataDNI(dates.dni);
     const { apellido_paterno, apellido_materno, nombres, error = false } = newData;
+    const espacio = nombres ? " " : "";
     setDates({
       ...dates,
       nombres,
-      apellidos: apellido_paterno + " " + apellido_materno,
+      apellidos: apellido_paterno + espacio + apellido_materno,
       error,
     });
   };
